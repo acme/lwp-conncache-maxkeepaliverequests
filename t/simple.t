@@ -14,14 +14,14 @@ $ua->conn_cache(
 );
 
 my $response = $ua->get('http://search.cpan.org/');
-is( $response->header('Content-Type'), 'text/html; charset=iso-8859-1' );
+like( $response->header('Content-Type'), qr{text/html} );
 is( $response->header('Client-Response-Num'), 1 );
 
 $response = $ua->get('http://search.cpan.org/');
-is( $response->header('Content-Type'), 'text/html; charset=iso-8859-1' );
+like( $response->header('Content-Type'), qr{text/html} );
 is( $response->header('Client-Response-Num'), 2 );
 
 $response = $ua->get('http://search.cpan.org/');
-is( $response->header('Content-Type'), 'text/html; charset=iso-8859-1' );
+like( $response->header('Content-Type'), qr{text/html} );
 is( $response->header('Client-Response-Num'), 1 );
 
